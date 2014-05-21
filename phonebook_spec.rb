@@ -7,7 +7,7 @@ describe Phonebook do
   end
 
   it "should insert a name into the database" do
-    expect(@pb.add_contact("Trace", "8133803438")).not_to raise_error
+    expect{@pb.add_contact("Trace", "8133803438")}.not_to raise_error
   end
 
   it "should get all contacts" do
