@@ -14,18 +14,23 @@ class Phonebook
   end
 
   def all_contacts
+    @db.execute("SELECT * FROM contacts;")
   end
 
   def get_contact(name)
+    @db.execute("SELECT phone_number FROM contacts WHERE name = '#{name}';")
   end
 
   def first_contact
+    @db.execute("SELECT * FROM contacts ").first
   end
 
   def last_contact
+    @db.execute("SELECT * FROM contacts ").last
   end
 
-  def select_contact
+  def select_contact(column,value)
+    @db.execute("SELECT * FROM contacts WHERE #{column} = '#{value}';")
   end
 
 private
